@@ -1,0 +1,34 @@
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer h3, .footer h4 {
+  margin-bottom: 10px;
+  color: #f1c40f;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  color: #aaa;
+}
