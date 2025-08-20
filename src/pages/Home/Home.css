@@ -76,7 +76,8 @@
 }
 
 /* Category Buttons */
-.category-buttons {
+.category-buttons,
+.trademark-buttons {
   display: flex;
   justify-content: center;
   gap: 12px;
@@ -86,7 +87,8 @@
   padding: 0 16px;
 }
 
-.category-btn {
+.category-btn,
+.trademark-btn {
   padding: 10px 24px;
   border: none;
   border-radius: 50px;
@@ -99,18 +101,22 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.category-btn:hover {
+.category-btn:hover,
+.trademark-btn:hover {
   background: #3b82f6;
   color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
-.category-btn.active {
+.category-btn.active,
+.trademark-btn.active {
   background: #3b82f6;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
+
+
 
 /* Product Grid */
 .product-grid {

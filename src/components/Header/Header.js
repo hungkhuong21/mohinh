@@ -1,11 +1,12 @@
 import React from "react";
 import "./Header.css";
+import {Link} from "react-router-dom";  
 import { FaShoppingCart, FaSearch, FaUser } from "react-icons/fa";
 
 const Header = () => {
     return (
         <header className="header">
-          <div className="logo">MÔ HÌNH SHOP</div>
+          <Link to="/" className="logo" style={{ textDecoration: "none" }}>MÔ HÌNH SHOP</Link>
           <div className="search-box">
             <input type="text" placeholder="Tìm kiếm sản phẩm..." />
             <button><FaSearch /></button>
@@ -18,7 +19,7 @@ const Header = () => {
               <a href="/orders">Đơn hàng</a>
             </nav>
               <div className="cart">
-                <FaShoppingCart size={22} />
+                <a href="/cart"> <FaShoppingCart size={22} /></a>
                 <span className="cart-count">2</span>
               </div>
             </div>
