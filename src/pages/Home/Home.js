@@ -62,7 +62,7 @@ const Home = () => {
       {/* Sản phẩm */}
       <h2 className="section-title">Sản phẩm nổi bật</h2>
       <div className="product-grid">
-        {filteredProducts.map((p) => (
+        {filteredProductsByTrademark.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>

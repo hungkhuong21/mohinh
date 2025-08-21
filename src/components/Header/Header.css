@@ -1,9 +1,10 @@
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 12pc;
-  background: #fff;
+  padding: 16px 48px;
+  background: linear-gradient(90deg, #010913 60%, #32bce2 100%);
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
   position: sticky;
   top: 0;
@@ -11,17 +12,22 @@
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
-  color: #007bff;
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 8px rgba(0,123,255,0.08);
+  color: #fff;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(0,123,255,0.18);
+  transition: color 0.2s;
+}
+
+.logo:hover {
+  color: #ffe600;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  background: #f4f6fa;
+  background: #fff;
   border-radius: 8px;
   padding: 5px 12px;
   margin-right: 0;
@@ -35,10 +41,11 @@
   font-size: 16px;
   outline: none;
   width: 180px;
+  color: #222;
 }
 
 .search-box button {
-  background: #007bff;
+  background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
   border: none;
   color: #fff;
   padding: 7px 12px;
@@ -65,20 +72,20 @@
 }
 
 .menu a {
-  color: #222;
+  color: #fff;
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   padding: 8px 18px;
   border-radius: 6px;
   transition: background 0.2s, color 0.2s;
-  background: #f4f6fa;
+  background: rgba(255,255,255,0.12);
   margin-right: 8px;
 }
 
 .menu a:hover {
-  background: #007bff;
-  color: #fff;
+  background: #ffe600;
+  color: #007bff;
 }
 
 .user-cart {
@@ -88,7 +95,7 @@
 }
 
 .user-btn {
-  color: #222;
+  color: #fff;
   text-decoration: none;
   font-size: 15px;
   display: flex;
@@ -96,13 +103,13 @@
   gap: 4px;
   padding: 7px 14px;
   border-radius: 6px;
-  background: #f4f6fa;
+  background: rgba(255,255,255,0.12);
   transition: background 0.2s, color 0.2s;
 }
 
 .user-btn:hover {
-  background: #007bff;
-  color: #fff;
+  background: #ffe600;
+  color: #007bff;
 }
 
 .cart {
@@ -110,14 +117,14 @@
   display: flex;
   align-items: center;
   margin-left: 8px;
-  background: #f4f6fa;
+  background: rgba(255,255,255,0.12);
   border-radius: 6px;
   padding: 7px 12px;
   transition: background 0.2s;
 }
 
 .cart:hover {
-  background: #007bff;
+  background: #ffe600;
 }
 
 .cart-count {
@@ -140,6 +147,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 12px;
+    background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
   }
   .logo {
     margin-bottom: 10px;

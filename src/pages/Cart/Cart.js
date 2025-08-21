@@ -21,6 +21,7 @@ const initialCart = [
 
 const Cart = () => {
   const [cart, setCart] = useState(initialCart);
+  const [selected, setSelected] = useState([]);
 
   const handleQuantityChange = (id, value) => {
     setCart(cart.map(item =>
@@ -30,9 +31,17 @@ const Cart = () => {
 
   const handleRemove = id => {
     setCart(cart.filter(item => item.id !== id));
+    setSelected(selected.filter(sid => sid !== id));
   };
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const handleSelect = id => {
+    setSelected(prev =>
+      prev.includes(id) ? prev.filter(sid => sid !== id) : [...prev, id]
+    );
+  };
+
+  const selectedItems = cart.filter(item => selected.includes(item.id));
+  const total = selectedItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="cart-container">
@@ -41,8 +50,20 @@ const Cart = () => {
         <div className="cart-empty">Giỏ hàng đang trống.</div>
       ) : (
         <div className="cart-list">
+
           {cart.map(item => (
-            <div className="cart-item" key={item.id}>
+            <div
+              className={`cart-item${selected.includes(item.id) ? " selected" : ""}`}
+              key={item.id}
+              onClick={() => handleSelect(item.id)}
+              style={{ cursor: "pointer" }}
+            >
+              <input
+                type="checkbox"
+                checked={selected.includes(item.id)}
+                readOnly
+                className="cart-item-checkbox"
+              />
               <img src={item.image} alt={item.name} className="cart-item-img" />
               <div className="cart-item-info">
                 <div className="cart-item-name">{item.name}</div>
@@ -53,11 +74,18 @@ const Cart = () => {
                     type="number"
                     min="1"
                     value={item.quantity}
+                    onClick={e => e.stopPropagation()}
                     onChange={e => handleQuantityChange(item.id, parseInt(e.target.value))}
                   />
                 </div>
               </div>
-              <button className="cart-item-remove" onClick={() => handleRemove(item.id)}>
+              <button
+                className="cart-item-remove"
+                onClick={e => {
+                  e.stopPropagation();
+                  handleRemove(item.id);
+                }}
+              >
                 Xóa
               </button>
             </div>
@@ -65,7 +93,13 @@ const Cart = () => {
           <div className="cart-total">
             Tổng tiền: <b>{total.toLocaleString("vi-VN")} VNĐ</b>
           </div>
-          <button className="cart-checkout-btn">Thanh toán</button>
+          <button
+            className="cart-checkout-btn"
+            disabled={selected.length === 0}
+            style={{ opacity: selected.length === 0 ? 0.6 : 1, cursor: selected.length === 0 ? "not-allowed" : "pointer" }}
+          >
+            Thanh toán
+          </button>
         </div>
       )}
     </div>
